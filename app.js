@@ -99,6 +99,8 @@ function addTiles(dinos, human) {
       dino.compareWeight(human),
       dino.compareDiet(human),
       dino.fact,
+      `The location where a ${dino.species} can be found: ${dino.where}`,
+      `The time period where a ${dino.species} can be found: ${dino.when}`,
     ];
 
     //place human in the middle
