@@ -40,29 +40,29 @@ function getFormData() {
 
 // Create Dino Compare Method 1
 // NOTE: Weight in JSON file is in lbs, height in inches.
-function compareHeight(dino, human) {
-  if (dino.height > human.height)
-    return `The ${dino.species} is taller than you!`;
-  else if (dino.height < human.height)
-    return `The ${dino.species} is shorter than you!`;
-  else return `The ${dino.species} and you have the same height!`;
-}
+Dino.prototype.compareHeight = function compareHeight(human) {
+  if (this.height > human.height)
+    return `The ${this.species} is taller than you!`;
+  else if (this.height < human.height)
+    return `The ${this.species} is shorter than you!`;
+  else return `The ${this.species} and you have the same height!`;
+};
 
 // Create Dino Compare Method 2
 // NOTE: Weight in JSON file is in lbs, height in inches.
-function compareWeight(dino, human) {
-  if (dino.weight > human.weight)
-    return `The ${dino.species} is heavier than you!`;
-  else if (dino.weight < human.weight)
-    return `The ${dino.species} is lighter than you!`;
-  else return `The ${dino.species} and you have the same weight!`;
-}
+Dino.prototype.compareWeight = function compareWeight(human) {
+  if (this.weight > human.weight)
+    return `The ${this.species} is heavier than you!`;
+  else if (this.weight < human.weight)
+    return `The ${this.species} is lighter than you!`;
+  else return `The ${this.species} and you have the same weight!`;
+};
 
 // Create Dino Compare Method 3
 // NOTE: Weight in JSON file is in lbs, height in inches.
-function compareDiet(dino, human) {
-  return `You're a ${human.diet} while a ${dino.species} is a ${dino.diet}`;
-}
+Dino.prototype.compareDiet = function compareDiet(human) {
+  return `You're a ${human.diet} while a ${this.species} is a ${this.diet}`;
+};
 
 // Generate Tiles for each Dino in Array
 function addTile(title, imageURL, fact) {
@@ -95,9 +95,9 @@ function addTiles(dinos, human) {
   dinos.forEach((dino, index) => {
     //get random facts for dino based on comparison functions and JSON data
     facts = [
-      compareHeight(dino, human),
-      compareWeight(dino, human),
-      compareDiet(dino, human),
+      dino.compareHeight(human),
+      dino.compareWeight(human),
+      dino.compareDiet(human),
       dino.fact,
     ];
 
